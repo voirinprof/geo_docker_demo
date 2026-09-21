@@ -2,7 +2,7 @@
 
 Petit projet pour illustrer les principes de base de Docker appliqués à
 la géomatique : un script Python (GeoPandas) qui charge des polygones,
-les reprojette et calcule leur superficie — le tout exécuté dans un
+les reprojette et calcule leur superficie, le tout exécuté dans un
 conteneur, sans rien installer sur la machine hôte.
 
 ## Contenu du dépôt
@@ -26,6 +26,90 @@ Docker Engine sur Linux). Vérifiez avec :
 ```bash
 docker --version
 ```
+
+## Installer Docker en local
+
+### Windows
+
+Docker Desktop utilise généralement WSL 2 pour exécuter Docker sous
+Windows.
+
+La commande `wsl` est disponible nativement sur Windows 10 version 2004
+(build 19041) ou ultérieure et sur Windows 11. Utilisez `winver` dans le
+menu Démarrer pour vérifier votre version de Windows. Si la commande
+`wsl` n'est pas reconnue, mettez Windows à jour avant de poursuivre.
+
+1. Ouvrez **PowerShell en tant qu'administrateur** et vérifiez d'abord
+   si WSL 2 est déjà installé :
+
+  ```powershell
+  wsl --status
+  wsl --version
+  wsl --list --verbose
+  ```
+
+  Une distribution Linux doit afficher `VERSION 2`. Si la commande
+  `wsl` est reconnue mais que WSL ou une distribution Linux n'est pas
+  installé, exécutez :
+
+  ```powershell
+  wsl --install
+  ```
+
+  Si aucune distribution n'est installée, vous pouvez installer Ubuntu
+  avec `wsl --install -d Ubuntu`. Redémarrez l'ordinateur si Windows le
+  demande.
+
+  Si `wsl` n'est pas reconnu, cette commande ne peut pas encore être
+  utilisée. Vérifiez votre version avec `winver`, installez les mises à
+  jour Windows, puis ouvrez à nouveau PowerShell en tant qu'administrateur
+  et reprenez cette étape. Pour une installation manuelle, consultez le
+  [guide Microsoft consacré à WSL](https://learn.microsoft.com/fr-fr/windows/wsl/install-manual).
+2. Téléchargez et installez [Docker Desktop](https://www.docker.com/products/docker-desktop/).
+  Pendant l'installation, activez l'option **Use WSL 2 instead of Hyper-V**
+  si elle est proposée.
+3. Dans Docker Desktop, vérifiez que **Use the WSL 2 based engine** est
+  activé dans les paramètres généraux.
+4. Ouvrez PowerShell ou un terminal WSL et vérifiez l'installation :
+
+  ```powershell
+  docker --version
+  docker run hello-world
+  ```
+
+Pour plus de détails, consultez le [guide Docker Desktop pour WSL 2](https://docs.docker.com/desktop/features/wsl/).
+
+### macOS
+
+1. Téléchargez et installez [Docker Desktop](https://www.docker.com/products/docker-desktop/).
+2. Lancez Docker Desktop et attendez que le moteur Docker soit démarré.
+3. Ouvrez un terminal et vérifiez l'installation :
+
+  ```bash
+  docker --version
+  docker run hello-world
+  ```
+
+Docker Desktop fournit Docker Engine, Docker CLI et les composants
+nécessaires pour exécuter les conteneurs sur Windows et macOS.
+
+### Linux
+
+1. Consultez la [documentation officielle d'installation de Docker Engine](https://docs.docker.com/engine/install/)
+  et sélectionnez votre distribution Linux.
+2. Suivez les étapes indiquées pour installer Docker Engine et Docker
+  Compose.
+3. Vérifiez l'installation :
+
+  ```bash
+  docker --version
+  sudo docker run hello-world
+  ```
+
+Sur Linux, l'utilisation de `sudo` peut être nécessaire. Pour exécuter
+Docker sans `sudo`, ajoutez ensuite votre utilisateur au groupe `docker`
+en suivant la [procédure post-installation officielle](https://docs.docker.com/engine/install/linux-postinstall/),
+puis reconnectez-vous à votre session.
 
 ## Utiliser le projet dans GitHub Codespaces
 
