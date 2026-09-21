@@ -1,0 +1,48 @@
+{
+  "type": "FeatureCollection",
+  "crs": { "type": "name", "properties": { "name": "EPSG:4326" } },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "nom": "Secteur Nord" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-71.92, 45.42],
+          [-71.87, 45.42],
+          [-71.87, 45.45],
+          [-71.92, 45.45],
+          [-71.92, 45.42]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "nom": "Secteur Centre" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-71.90, 45.38],
+          [-71.85, 45.38],
+          [-71.85, 45.42],
+          [-71.90, 45.42],
+          [-71.90, 45.38]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "nom": "Secteur Sud" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-71.88, 45.33],
+          [-71.82, 45.33],
+          [-71.82, 45.38],
+          [-71.88, 45.38],
+          [-71.88, 45.33]
+        ]]
+      }
+    }
+  ]
+}
